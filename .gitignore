@@ -1,1 +1,5 @@
 .vscode
+tmp
+input.txt
+*.in
+*.out
