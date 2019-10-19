@@ -18,6 +18,5 @@ void solve() {
 int main() {
   int q;
   cin >> q;
-  for (int i = 0; i < q; ++i)
-    solve();
+  for (int i = 0; i < q; ++i) solve();
 }

@@ -1,3 +1,4 @@
+#include <climits>
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -17,8 +18,7 @@ int main() {
 
   // Case 1: No solution
   if (lo * 2 >= hi) {
-    for (int i = 0; i < n; ++i)
-      cout << -1 << " ";
+    for (int i = 0; i < n; ++i) cout << -1 << " ";
     return 0;
   }
 
@@ -31,18 +31,15 @@ int main() {
       ans[idx] = i - idx;
       q.pop();
     }
-    if (i < n)
-      q.push({a[i], i});
+    if (i < n) q.push({a[i], i});
   }
 
   int curr = 1e6;
   for (int i = 2 * n - 1; i >= 0; --i) {
     int id = i % n;
-    if (!ans[id] || ans[id] > curr)
-      ans[id] = curr;
+    if (!ans[id] || ans[id] > curr) ans[id] = curr;
     curr = min(curr, ans[id]) + 1;
   }
 
-  for (int i = 0; i < n; ++i)
-    cout << ans[i] << " ";
+  for (int i = 0; i < n; ++i) cout << ans[i] << " ";
 }

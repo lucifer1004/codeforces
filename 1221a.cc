@@ -10,8 +10,7 @@ void solve() {
   for (int i = 0; i < n; ++i) {
     int d;
     cin >> d;
-    if (d <= 2048)
-      cnt[d]++;
+    if (d <= 2048) cnt[d]++;
   }
 
   for (int i = 1; i <= 1024; i <<= 1) {
@@ -27,7 +26,6 @@ void solve() {
 int main() {
   int q;
   cin >> q;
-  for (int i = 0; i < q; ++i)
-    solve();
+  for (int i = 0; i < q; ++i) solve();
   return 0;
 }

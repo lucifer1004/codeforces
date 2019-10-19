@@ -30,11 +30,9 @@ int main() {
       int rlimit = right;
       if (!row[r].empty()) {
         auto it = row[r].lower_bound(c);
-        if (it != row[r].end())
-          rlimit = min(rlimit, *it - 1);
+        if (it != row[r].end()) rlimit = min(rlimit, *it - 1);
       }
-      if (rlimit > c)
-        moved = true;
+      if (rlimit > c) moved = true;
       steps += rlimit - c;
       c = rlimit;
       right = rlimit - 1;
@@ -42,11 +40,9 @@ int main() {
       int blimit = bottom;
       if (!col[c].empty()) {
         auto it = col[c].lower_bound(r);
-        if (it != col[c].end())
-          blimit = min(blimit, *it - 1);
+        if (it != col[c].end()) blimit = min(blimit, *it - 1);
       }
-      if (blimit > r)
-        moved = true;
+      if (blimit > r) moved = true;
       steps += blimit - r;
       r = blimit;
       bottom = blimit - 1;
@@ -54,11 +50,9 @@ int main() {
       int llimit = left;
       if (!row2[r].empty()) {
         auto it = row2[r].lower_bound(c);
-        if (it != row2[r].end())
-          llimit = max(llimit, *it + 1);
+        if (it != row2[r].end()) llimit = max(llimit, *it + 1);
       }
-      if (llimit < c)
-        moved = true;
+      if (llimit < c) moved = true;
       steps += c - llimit;
       c = llimit;
       left = llimit + 1;
@@ -66,11 +60,9 @@ int main() {
       int tlimit = top;
       if (!col2[c].empty()) {
         auto it = col2[c].lower_bound(r);
-        if (it != col2[c].end())
-          tlimit = max(tlimit, *it + 1);
+        if (it != col2[c].end()) tlimit = max(tlimit, *it + 1);
       }
-      if (tlimit < r)
-        moved = true;
+      if (tlimit < r) moved = true;
       steps += r - tlimit;
       r = tlimit;
       top = tlimit + 1;

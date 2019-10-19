@@ -24,14 +24,12 @@ void solve() {
   for (int i = 0; i < 2; ++i) {
     string s;
     cin >> s;
-    for (int j = 0; j < n; ++j)
-      a[i][j] = s[j] - '1';
+    for (int j = 0; j < n; ++j) a[i][j] = s[j] - '1';
   }
 
   vvvb possible(2, vvb(n, vb(6)));
   for (const int &i : start)
-    if (trans[a[0][0]][i])
-      possible[0][0][i] = true;
+    if (trans[a[0][0]][i]) possible[0][0][i] = true;
 
   for (int i = 0; i < 6; ++i)
     for (int j = 0; j < 6; ++j)
@@ -42,8 +40,7 @@ void solve() {
     // left to right
     for (int j = 0; j < 2; ++j) {
       for (int k = 0; k < 6; ++k) {
-        if (!trans[a[j][i]][k])
-          continue;
+        if (!trans[a[j][i]][k]) continue;
         for (int t = 0; t < 6; ++t) {
           if (possible[j][i - 1][t] && lr[t][k]) {
             possible[j][i][k] = true;
@@ -56,8 +53,7 @@ void solve() {
     vb origin(possible[1][i]);
     // up to down
     for (int k = 0; k < 6; ++k) {
-      if (!trans[a[1][i]][k] || possible[1][i][k])
-        continue;
+      if (!trans[a[1][i]][k] || possible[1][i][k]) continue;
       for (int t = 0; t < 6; ++t) {
         if (possible[0][i][t] && tb[t][k]) {
           possible[1][i][k] = true;
@@ -68,8 +64,7 @@ void solve() {
 
     // down to up
     for (int k = 0; k < 6; ++k) {
-      if (!trans[a[0][i]][k] || possible[0][i][k])
-        continue;
+      if (!trans[a[0][i]][k] || possible[0][i][k]) continue;
       for (int t = 0; t < 6; ++t) {
         if (origin[t] && tb[k][t]) {
           possible[0][i][k] = true;
@@ -89,6 +84,6 @@ void solve() {
 int main() {
   int q;
   cin >> q;
-  for (int i = 0; i < q; ++i)
-    solve();
+  for (int i = 0; i < q; ++i) solve();
+  return 0;
 }

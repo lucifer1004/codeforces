@@ -9,7 +9,7 @@ class Graph {
   vector<vector<int>> adj;
   int head, maxin;
 
-public:
+ public:
   Graph(int n) {
     in = vector<int>(n);
     adj = vector<vector<int>>(n);
@@ -28,15 +28,13 @@ public:
 
   vector<int> sort() {
     int i = 0;
-    while (in[i] > 1)
-      i++;
+    while (in[i] > 1) i++;
     head = i;
     vector<int> seq;
     seq.emplace_back(head);
     while (seq.size() < in.size()) {
       int j = 0;
-      while (adj[i][j] == head)
-        j++;
+      while (adj[i][j] == head) j++;
       head = i;
       i = adj[head][j];
       seq.emplace_back(i);
@@ -49,12 +47,9 @@ int main() {
   int n;
   cin >> n;
   vector<vector<int>> c(3, vector<int>(n));
-  for (int i = 0; i < n; ++i)
-    scanf("%d", &c[0][i]);
-  for (int i = 0; i < n; ++i)
-    scanf("%d", &c[1][i]);
-  for (int i = 0; i < n; ++i)
-    scanf("%d", &c[2][i]);
+  for (int i = 0; i < n; ++i) scanf("%d", &c[0][i]);
+  for (int i = 0; i < n; ++i) scanf("%d", &c[1][i]);
+  for (int i = 0; i < n; ++i) scanf("%d", &c[2][i]);
   Graph g(n);
   for (int i = 0; i < n - 1; ++i) {
     int a, b;
@@ -158,7 +153,6 @@ int main() {
           color[j] = 1;
       }
     }
-    for (int i = 0; i < n; ++i)
-      cout << color[i] << " ";
+    for (int i = 0; i < n; ++i) cout << color[i] << " ";
   }
 }

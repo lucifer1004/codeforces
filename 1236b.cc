@@ -6,12 +6,10 @@ typedef long long ll;
 const ll modulo = 1e9 + 7;
 
 ll fast_exp(ll x, ll y) {
-  if (y == 0)
-    return 1;
+  if (y == 0) return 1;
   ll half = fast_exp(x, y / 2);
   ll ans = half * half % modulo;
-  if (y % 2)
-    ans = ans * x % modulo;
+  if (y % 2) ans = ans * x % modulo;
   return ans;
 }
 

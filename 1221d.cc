@@ -1,3 +1,4 @@
+#include <climits>
 #include <iostream>
 #include <vector>
 
@@ -8,8 +9,7 @@ void solve() {
   int n;
   cin >> n;
   vector<int> h(n), c(n);
-  for (int i = 0; i < n; ++i)
-    scanf("%d%d", &h[i], &c[i]);
+  for (int i = 0; i < n; ++i) scanf("%d%d", &h[i], &c[i]);
   vector<vector<ll>> dp(n, vector<ll>(3, LLONG_MAX));
   dp[0][0] = 0;
   dp[0][1] = c[0];
@@ -27,7 +27,6 @@ void solve() {
 int main() {
   int q;
   cin >> q;
-  for (int i = 0; i < q; ++i)
-    solve();
+  for (int i = 0; i < q; ++i) solve();
   return 0;
 }

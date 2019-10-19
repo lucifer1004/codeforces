@@ -10,7 +10,7 @@ class Chat {
   vector<int> cache;
   set<int> dict;
 
-public:
+ public:
   Chat(int cap) {
     this->cap = cap;
     this->cache = vector<int>(cap, -1);
@@ -22,10 +22,8 @@ public:
     if (dict.find(id) == dict.end()) {
       len++;
       head--;
-      if (head < 0)
-        head += cap;
-      if (cache[head] != -1)
-        dict.erase(cache[head]);
+      if (head < 0) head += cap;
+      if (cache[head] != -1) dict.erase(cache[head]);
       cache[head] = id;
       dict.insert(id);
     }
@@ -34,8 +32,7 @@ public:
   void display() {
     int size = min(cap, len);
     cout << size << endl;
-    for (int i = 0; i < size; ++i)
-      cout << cache[(head + i) % cap] << " ";
+    for (int i = 0; i < size; ++i) cout << cache[(head + i) % cap] << " ";
     cout << endl;
   }
 };

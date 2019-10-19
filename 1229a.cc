@@ -16,14 +16,12 @@ class Union {
   set<int> choose;
 
   void dfs(int i) {
-    if (choose.find(i) != choose.end())
-      return;
+    if (choose.find(i) != choose.end()) return;
     choose.insert(i);
-    for (const int &j : children[i])
-      dfs(j);
+    for (const int &j : children[i]) dfs(j);
   }
 
-public:
+ public:
   Union(vector<ll> &skills, vector<ll> &points) {
     unordered_map<ll, Person> dict;
     int n = skills.size();
@@ -35,8 +33,7 @@ public:
         dict[skills[i]].count++;
       }
     }
-    for (const auto &p : dict)
-      people.emplace_back(p.second);
+    for (const auto &p : dict) people.emplace_back(p.second);
     int m = people.size();
     children = vector<vector<int>>(m);
     for (int i = 0; i < m - 1; ++i)
@@ -54,10 +51,8 @@ public:
     ll ans = 0;
     int m = people.size();
     for (int i = 0; i < m; ++i)
-      if (people[i].count > 1)
-        dfs(i);
-    for (const int &i : choose)
-      ans += people[i].point;
+      if (people[i].count > 1) dfs(i);
+    for (const int &i : choose) ans += people[i].point;
     return ans;
   }
 };

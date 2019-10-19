@@ -20,11 +20,9 @@ int main() {
   }
   int ans = 0;
   set<int> s;
-  for (int i = 0; i < n; ++i)
-    s.insert(i);
+  for (int i = 0; i < n; ++i) s.insert(i);
   for (int i = 0; i < n; ++i) {
-    if (b[i] > *s.begin())
-      ans++;
+    if (b[i] > *s.begin()) ans++;
     s.erase(b[i]);
   }
   cout << ans;

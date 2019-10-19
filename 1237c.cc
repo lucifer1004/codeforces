@@ -31,11 +31,9 @@ int main() {
   }
   vector<Point> q;
   for (int i = 0; i < n; ++i)
-    if (!used[i])
-      q.emplace_back(p[i]);
+    if (!used[i]) q.emplace_back(p[i]);
   int m = q.size();
-  if (m == 0)
-    return 0;
+  if (m == 0) return 0;
   used = vector<bool>(m);
   for (int i = 0; i < m - 1; ++i) {
     if (q[i].x == q[i + 1].x) {
@@ -47,9 +45,7 @@ int main() {
   }
   p.clear();
   for (int i = 0; i < m; ++i)
-    if (!used[i])
-      p.emplace_back(q[i]);
+    if (!used[i]) p.emplace_back(q[i]);
   int t = p.size();
-  for (int i = 0; i < t; i += 2)
-    cout << p[i].id << " " << p[i + 1].id << endl;
+  for (int i = 0; i < t; i += 2) cout << p[i].id << " " << p[i + 1].id << endl;
 }
