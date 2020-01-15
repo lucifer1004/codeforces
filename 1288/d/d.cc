@@ -16,7 +16,7 @@ class Solution {
       for (int j = 0; j < m; ++j) {
         scanf("%d", &a[i][j]);
       }
-    vector<int> f(1 << m), s(1 << m, -1);
+    vector<int> f(1 << m, -1), s(1 << m, -1);
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < 1 << m; ++j) {
         bitset<8> bs(j);
