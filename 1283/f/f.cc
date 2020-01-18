@@ -37,16 +37,10 @@ public:
     max_free = n;
     for (int i = 1; i < n; ++i) {
       if (parent[a[i]] == -1) {
-        if (!children[a[i]].empty()) {
-          max_free--;
-          while (!children[max_free].empty())
-            max_free--;
-        }
-        if (parent[max_free] != -1) {
-          int p = parent[max_free];
-          children[p].erase(max_free);
-          children[p].insert(a[i]);
-        }
+        int p = parent[max_free];
+        children[p].erase(max_free);
+        children[p].insert(a[i]);
+        parent[a[i]] = p;
       } else {
         max_free--;
         while (!children[max_free].empty())
