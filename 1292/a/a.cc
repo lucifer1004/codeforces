@@ -1,19 +1,8 @@
-#include <algorithm>
-#include <bitset>
-#include <climits>
-#include <cmath>
-#include <cstring>
 #include <iostream>
-#include <map>
-#include <queue>
 #include <set>
-#include <stack>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
 
 using namespace std;
-typedef long long ll;
 
 set<string> ok = {"0000", "1000", "0100", "0010", "0001", "0011", "1100"};
 
