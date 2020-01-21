@@ -1,8 +1,8 @@
 # Codeforces Round 605 Div.3
 
 - [x] A
-- [ ] B
-- [ ] C
+- [x] B
+- [x] C
 - [ ] D
 - [ ] E
 - [ ] F
