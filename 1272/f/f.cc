@@ -6,7 +6,7 @@
 #define MAX 205
 
 using namespace std;
-int dp[MAX][MAX][MAX], pre[MAX][MAX][MAX];
+int pre[MAX][MAX][MAX];
 bool visited[MAX][MAX][MAX];
 
 struct State {
@@ -20,10 +20,8 @@ public:
     string s, t;
     cin >> s >> t;
     int ls = s.size(), lt = t.size();
-    memset(dp, INT_MAX, sizeof(dp));
     memset(pre, 0, sizeof(pre));
     memset(visited, false, sizeof(visited));
-    dp[0][0][0] = 0;
     pre[0][0][0] = -1;
 
     vector<State> q;
@@ -40,7 +38,6 @@ public:
         if (nt < lt && t[nt] == ')') {
           nt++;
         }
-        dp[ns][nt][no] = dp[qs][qt][qo] + 1;
         if (!visited[ns][nt][no]) {
           visited[ns][nt][no] = true;
           pre[ns][nt][no] = l;
@@ -56,7 +53,6 @@ public:
         if (nt < lt && t[nt] == '(') {
           nt++;
         }
-        dp[ns][nt][no] = dp[qs][qt][qo] + 1;
         if (!visited[ns][nt][no]) {
           visited[ns][nt][no] = true;
           pre[ns][nt][no] = l;
