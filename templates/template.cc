@@ -6,9 +6,11 @@
 #include <cstdio>
 #include <cstring>
 #include <ctime>
+#include <deque>
 #include <functional>
 #include <iostream>
 #include <iterator>
+#include <list>
 #include <map>
 #include <numeric>
 #include <queue>
