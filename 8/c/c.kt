@@ -18,6 +18,7 @@ class Solution(private val origin: Pair<Int, Int>, private val items: MutableLis
     private val pre = IntArray(1 shl n) { -1 }
 
     private fun match(idx: Int) {
+        if (dp[idx] == Int.MAX_VALUE) return
         var i = 0
         while (idx and (1 shl i) != 0)
             i++
@@ -25,7 +26,6 @@ class Solution(private val origin: Pair<Int, Int>, private val items: MutableLis
             if (dp[newIdx] > newValue) {
                 dp[newIdx] = newValue
                 pre[newIdx] = idx
-                match(newIdx)
             }
         }
         if (i < n) update(dp[idx] + dist(items[i], origin), idx + (1 shl i))
@@ -40,7 +40,8 @@ class Solution(private val origin: Pair<Int, Int>, private val items: MutableLis
         dp[0] = 0
         for (i in 0 until n)
             dp[0] += dist(items[i], origin)
-        match(0)
+        for (i in 0 until (1 shl n) - 1)
+            match(i)
         println(dp[(1 shl n) - 1])
         val path = mutableListOf(0)
         var curr = (1 shl n) - 1
