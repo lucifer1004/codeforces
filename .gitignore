@@ -1,5 +1,7 @@
+.idea
 .vscode
 tmp
-input.txt
+out
+*.iml
 *.in
 *.out
