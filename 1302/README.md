@@ -5,7 +5,7 @@ This is not an ordinary contest. All standard solutions have bugs, and we have t
 - [x] A (read m, n instead of n, m)
 - [x] B (connect u<-v instead of u->v)
 - [x] C (not clearing global data structure)
-- [ ] D
+- [x] D (using priority_queue wrongly)
 - [ ] E
 - [ ] F
 - [ ] G
