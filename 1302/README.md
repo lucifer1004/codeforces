@@ -6,7 +6,7 @@ This is not an ordinary contest. All standard solutions have bugs, and we have t
 - [x] B (connect u<-v instead of u->v)
 - [x] C (not clearing global data structure)
 - [x] D (using priority_queue wrongly)
-- [ ] E
+- [x] E (int overflow)
 - [ ] F
 - [ ] G
 - [ ] H
