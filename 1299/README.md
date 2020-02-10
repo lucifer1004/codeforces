@@ -1,7 +1,7 @@
 # Codeforces Round 618 Div.1
 
 - [x] A
-- [ ] B
-- [ ] C
+- [x] B:bookmark_tabs:
+- [x] C:bookmark_tabs:
 - [ ] D
 - [ ] E
