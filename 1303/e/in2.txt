@@ -1,0 +1,11 @@
+5
+aabbccdd
+abcdabcd
+axubcccd
+abcdxucc
+gadebfc
+abcdefg
+aaaaaaaa
+aaaaaaab
+aabb
+aaab
