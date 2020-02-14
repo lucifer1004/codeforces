@@ -1,7 +1,7 @@
 # Technocup 2020 - Elimination Round 3
 
 - [x] A
-- [ ] B
+- [x] B
 - [ ] C
 - [ ] D1
 - [ ] D2
