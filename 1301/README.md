@@ -4,5 +4,5 @@
 - [x] B
 - [x] C
 - [x] D
-- [ ] E
-- [ ] F
+- [x] E:bookmark_tabs:
+- [ ] F:bookmark_tabs:
