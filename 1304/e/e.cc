@@ -79,17 +79,6 @@ public:
     int p = query_lca(u, v);
     return depth[u] + depth[v] - depth[p] * 2;
   }
-
-  // Find the intersection point of node a and circle x-y
-  int intersect(int a, int x, int y) {
-    int z = query_lca(x, y);
-    int pax = query_lca(a, x);
-    int pay = query_lca(a, y);
-    int pa = depth[pax] >= depth[pay] ? pax : pay;
-    if (depth[pa] < depth[z])
-      pa = z;
-    return pa;
-  }
 };
 
 bool check(int k, int b) { return k >= b && (k - b) % 2 == 0; }
@@ -117,14 +106,14 @@ int main() {
   for (int i = 0; i < q; ++i) {
     int x, y, a, b, k;
     scanf("%d%d%d%d%d", &x, &y, &a, &b, &k);
-    int circle = tree.dist(x, y) + 1;
     int ab = tree.dist(a, b);
     bool can = check(k, ab);
 
-    int pa = tree.intersect(a, x, y);
-    int pb = tree.intersect(b, x, y);
-    int ab2 = tree.dist(a, pa) + tree.dist(b, pb) + circle - tree.dist(pa, pb);
+    int ab2 = tree.dist(a, x) + tree.dist(b, y) + 1;
     can = can || check(k, ab2);
+
+    int ab3 = tree.dist(a, y) + tree.dist(b, x) + 1;
+    can = can || check(k, ab3);
 
     if (can)
       printf("YES\n");
