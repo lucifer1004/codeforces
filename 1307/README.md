@@ -5,5 +5,5 @@
 - [x] C
 - [x] D
 - [ ] E
-- [ ] F
+- [x] F:bookmark_tabs:
 - [ ] G
