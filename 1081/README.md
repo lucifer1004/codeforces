@@ -4,8 +4,8 @@
 - [x] B
 - [x] C
 - [x] D:bookmark_tabs:
-- [ ] E
-- [ ] F
+- [x] E
+- [x] F:bookmark_tabs:
 - [ ] G
 - [ ] H
 
