@@ -11,3 +11,7 @@
 ## Dynamic Programming
 
 - [1249E](1249/e/e.cc) By Elevator or Stairs? ([Description](https://codeforces.com/problemset/problem/1249/E))
+
+### Tree DP
+
+- [1223E](1223/e/e.cc) Paint the Tree ([Description](https://codeforces.com/problemset/problem/1223/E))
