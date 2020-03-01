@@ -1,3 +1,4 @@
+#include <cmath>
 #include <cstdio>
 #include <iostream>
 #include <unordered_set>
@@ -27,21 +28,14 @@ public:
     for (int u = 1; u <= n; ++u) {
       vis[u] = 1;
       for (int v : adj[u]) {
-        if (adj[v].size() <= B) {
-          for (int w : adj[v])
-            if (adj[u].find(w) != adj[u].end()) {
-              a = u, b = v, c = w;
-              found = true;
-              break;
-            }
-        } else {
-          for (int w : adj[u])
-            if (adj[v].find(w) != adj[v].end()) {
-              a = u, b = v, c = w;
-              found = true;
-              break;
-            }
-        }
+        int d = adj[v].size() <= B ? v : u;
+        int p = u + v - d;
+        for (int w : adj[d])
+          if (adj[p].find(w) != adj[p].end()) {
+            a = u, b = v, c = w;
+            found = true;
+            break;
+          }
         if (found)
           break;
       }
@@ -54,17 +48,15 @@ public:
       vector<int> ans(n + 1);
       ans[a] = 1, ans[b] = 2, ans[c] = 3;
       vector<int> count(4, 1);
+      vector<int> core = {0, a, b, c};
       vector<unordered_set<int>> v(4);
       for (int i = 1; i <= n; ++i) {
         if (i == a || i == b || i == c)
           continue;
         int num = 6;
-        if (adj[i].find(a) != adj[i].end())
-          num -= 1;
-        if (adj[i].find(b) != adj[i].end())
-          num -= 2;
-        if (adj[i].find(c) != adj[i].end())
-          num -= 3;
+        for (int k = 1; k <= 3; ++k)
+          if (adj[i].find(core[k]) != adj[i].end())
+            num -= k;
         if (num >= 1 && num <= 3) {
           ans[i] = num;
           count[num]++;
@@ -77,41 +69,20 @@ public:
       ll need = (ll)count[1] * count[2] + (ll)count[1] * count[3] +
                 (ll)count[2] * count[3];
       bool ok = need == m;
-      if (ok) {
-        for (int i : v[1])
-          for (int j : v[2]) {
-            if (adj[i].find(j) == adj[i].end()) {
-              ok = false;
-              break;
-            }
-            if (!ok)
-              break;
-          }
-      }
 
-      if (ok) {
-        for (int i : v[1])
-          for (int j : v[3]) {
-            if (adj[i].find(j) == adj[i].end()) {
-              ok = false;
-              break;
-            }
-            if (!ok)
-              break;
+      for (int p = 1; p <= 2; ++p)
+        for (int q = p + 1; q <= 3; ++q)
+          if (ok) {
+            for (int i : v[p])
+              for (int j : v[q]) {
+                if (adj[i].find(j) == adj[i].end()) {
+                  ok = false;
+                  break;
+                }
+                if (!ok)
+                  break;
+              }
           }
-      }
-
-      if (ok) {
-        for (int i : v[2])
-          for (int j : v[3]) {
-            if (adj[i].find(j) == adj[i].end()) {
-              ok = false;
-              break;
-            }
-            if (!ok)
-              break;
-          }
-      }
 
       if (!ok)
         printf("-1");
