@@ -28,30 +28,29 @@ public:
       if (after[i] > 0)
         non_zero_nodes.emplace_back(i);
     }
-    vector<int> delta(n);
+    vector<vector<int>> delta(n);
     for (int i = 0; i < n; ++i) {
       int d = before[i] - after[i];
-      if (d < 0) {
+      if (d < 0 || d >= n) {
         cout << -1 << endl;
         return;
       } else
-        delta[i] = d;
+        delta[d].emplace_back(i);
     }
-    vector<int> nodes(n);
-    for (int i = 0; i < n; ++i)
-      nodes[i] = i;
-    sort(nodes.begin(), nodes.end(), [&](int i, int j) {
-      return delta[i] < delta[j] || (delta[i] == delta[j] && i < j);
-    });
-    for (int i : nodes) {
-      if (zero_nodes.size() < delta[i]) {
+
+    for (int i = 0; i < n; ++i) {
+      if (delta[i].empty())
+        continue;
+      if (zero_nodes.size() < i) {
         cout << -1 << endl;
         return;
       }
-      for (int j = 0; j < delta[i]; ++j)
-        adj[zero_nodes[j]].emplace_back(i);
-      if (after[i] == 0)
-        zero_nodes.emplace_back(i);
+      for (int k : delta[i]) {
+        for (int j = 0; j < i; ++j)
+          adj[zero_nodes[j]].emplace_back(k);
+        if (after[k] == 0)
+          zero_nodes.emplace_back(k);
+      }
     }
     for (int i : non_zero_nodes) {
       if (after[i] + 1 > non_zero_nodes.size()) {
