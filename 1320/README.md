@@ -1,7 +1,7 @@
 # Codeforces Round 625 Div.1
 
 - [x] A
-- [ ] B
+- [x] B
 - [ ] C
 - [ ] D
 - [ ] E
