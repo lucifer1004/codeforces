@@ -3,6 +3,6 @@
 - [x] A
 - [x] B
 - [x] C:bookmark_tabs:
-- [ ] D
+- [x] D
 - [ ] E
 - [ ] F
