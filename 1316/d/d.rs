@@ -57,13 +57,10 @@ fn main() {
             let ny = front.y + d[1];
             let nxu = nx as usize;
             let nyu = ny as usize;
-            if nx <= 0 || nx > n || ny <= 0 || ny > n {
-                continue;
-            }
-            if tx[nxu][nyu] != front.sx || ty[nxu][nyu] != front.sy {
-                continue;
-            }
-            if s[nxu][nyu] != 'S' {
+            if nx <= 0 || nx > n || ny <= 0 || ny > n ||
+                tx[nxu][nyu] != front.sx ||
+                ty[nxu][nyu] != front.sy ||
+                s[nxu][nyu] != 'S' {
                 continue;
             }
             s[nxu][nyu] = symbols[i];
@@ -79,7 +76,7 @@ fn main() {
     // Handle cells that will loop infinitely
     for i in 1..(n + 1) as usize {
         for j in 1..(n + 1) as usize {
-            if tx[i][j] != -1 || s[i][j] != 'S' {
+            if tx[i][j] != -1 {
                 continue;
             }
             for (k, d) in directions.iter().enumerate() {
@@ -87,52 +84,12 @@ fn main() {
                 let ny = j as i32 + d[1];
                 let nxu = nx as usize;
                 let nyu = ny as usize;
-                if nx <= 0 || nx > n || ny <= 0 || ny > n {
+                if nx <= 0 || nx > n || ny <= 0 || ny > n || tx[nxu][nyu] != -1 {
                     continue;
                 }
-                if tx[nxu][nyu] != -1 || s[nxu][nyu] != 'S' {
-                    continue;
-                }
-                q.push_back(Node {
-                    x: i as i32,
-                    y: j as i32,
-                    sx: i as i32,
-                    sy: j as i32,
-                });
-                q.push_back(Node {
-                    x: nx,
-                    y: ny,
-                    sx: nx,
-                    sy: ny,
-                });
                 s[i][j] = symbols[3 - k];
-                s[nxu][nyu] = symbols[k];
                 break;
             }
-        }
-    }
-
-    while !q.is_empty() {
-        let front = q.front().unwrap().clone();
-        q.pop_front();
-        for (i, d) in directions.iter().enumerate() {
-            let nx = front.x + d[0];
-            let ny = front.y + d[1];
-            let nxu = nx as usize;
-            let nyu = ny as usize;
-            if nx <= 0 || nx > n || ny <= 0 || ny > n {
-                continue;
-            }
-            if tx[nxu][nyu] != -1 || s[nxu][nyu] != 'S' {
-                continue;
-            }
-            s[nxu][nyu] = symbols[i];
-            q.push_back(Node {
-                x: nx,
-                y: ny,
-                sx: front.sx,
-                sy: front.sy,
-            })
         }
     }
 
