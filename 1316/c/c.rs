@@ -3,9 +3,10 @@ use std::io;
 fn work(p: i32) -> i32 {
     let mut line = String::new();
     io::stdin().read_line(&mut line).unwrap();
-    let line: Vec<&str> = line.split(" ").collect();
-    for (i, num_str) in line.iter().enumerate() {
-        let num: i32 = num_str.trim().parse().unwrap();
+    let line: Vec<i32> = line.split(" ").map(|s| {
+        s.trim().parse::<i32>().unwrap()
+    }).collect();
+    for (i, num) in line.iter().enumerate() {
         if num % p != 0 {
             return i as i32;
         }
