@@ -102,10 +102,14 @@ fn main() {
         }
     }
     println!("VALID");
+    let mut ans = String::new();
     for i in 1..(n + 1) as usize {
         for j in 1..(n + 1) as usize {
-            print!("{}", s[i][j]);
+            ans.push(s[i][j]);
         }
-        println!();
+        if i != n as usize {
+            ans.push('\n');
+        }
     }
+    println!("{}", ans);
 }
