@@ -1,8 +1,13 @@
 use std::io;
 
-fn read_ints() -> Vec<i32> {
+fn read_line() -> String {
     let mut line = String::new();
     io::stdin().read_line(&mut line).unwrap();
+    return line;
+}
+
+fn read_ints() -> Vec<i32> {
+    let line = read_line();
     return line.trim().split(" ")
         .filter(|&s| s.len() > 0)
         .map(|s| {
