@@ -1,11 +1,20 @@
 use std::io;
 
+fn read_ints() -> Vec<i32> {
+    let mut line = String::new();
+    io::stdin().read_line(&mut line).unwrap();
+    return line.trim().split(" ")
+        .filter(|&s| s.len() > 0)
+        .map(|s| {
+            s.parse::<i32>().unwrap()
+        }).collect();
+}
+
 fn main() {
-    let mut size = String::new();
-    io::stdin().read_line(&mut size).unwrap();
-    let size: Vec<&str> = size.split(" ").collect();
-    let a: u64 = size[0].trim().parse().unwrap();
-    let b: u64 = size[1].trim().parse().unwrap();
-    
-    print!("{} {}", a, b);
+    let params = read_ints();
+    let n = params[0];
+    let k = params[1];
+    let a = read_ints();
+    println!("{} {}", n, k);
+    println!("{:?}", a);
 }
