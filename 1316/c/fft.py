@@ -36,7 +36,7 @@ def mul(a, b):
     a_val = FFT(a, w)
     b_val = FFT(b, w)
     c_val = [a_val[i] * b_val[i] for i in range(length)]
-    result = [int((x / length).real) for x in FFT(c_val, w ** -1)]
+    result = [round((x / length).real) for x in FFT(c_val, w ** -1)]
 
     while result[-1] == 0:
         del result[-1]
