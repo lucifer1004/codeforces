@@ -14,6 +14,11 @@
 
 ## Graph
 
+### DFS Tree
+
+- [1217D](1217/d/d.py) Coloring Edges ([Description](https://codeforces.com/problemset/problem/1217/D))
+- [1325F](1325/f/f.cc) Ehab's Last Theorem ([Description](https://codeforces.com/problemset/problem/1325/F))
+
 ### Shortest Path
 
 #### Dijkstra
