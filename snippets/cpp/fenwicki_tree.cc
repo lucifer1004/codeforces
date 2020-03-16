@@ -15,7 +15,7 @@ public:
   }
 
   void update(int idx, T delta) {
-    for (; idx < limit; idx += lowbit(idx))
+    for (; idx <= limit; idx += lowbit(idx))
       arr[idx] += delta;
   }
 
