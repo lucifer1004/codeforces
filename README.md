@@ -6,6 +6,8 @@
 
 ## Dynamic Programming
 
+- [19B](19/b/b.kt) Checkout Assistant([Description](https://codeforces.com/problemset/problem/19/B))
+- [31E](31/e/e.py) TV Gam([Description](https://codeforces.com/problemset/problem/31/E))
 - [1249E](1249/e/e.cc) By Elevator or Stairs? ([Description](https://codeforces.com/problemset/problem/1249/E))
 
 ### Tree DP
