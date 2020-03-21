@@ -43,4 +43,5 @@
 ## Strings
 
 ### Prefix function
+- [471D](471/d/d.py) MUH and Cube Walls ([Description](https://codeforces.com/problemset/problem/471/D)) 
 - [808G](808/g/g.cc) Anthem of Berland ([Description](https://codeforces.com/problemset/problem/808/G)) 
