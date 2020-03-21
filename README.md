@@ -12,6 +12,7 @@
 
 - [19B](19/b/b.kt) Checkout Assistant ([Description](https://codeforces.com/problemset/problem/19/B))
 - [31E](31/e/e.py) TV Game ([Description](https://codeforces.com/problemset/problem/31/E))
+- [808G](808/g/g.cc) Anthem of Berland ([Description](https://codeforces.com/problemset/problem/808/G)) 
 - [1249E](1249/e/e.cc) By Elevator or Stairs? ([Description](https://codeforces.com/problemset/problem/1249/E))
 
 ### Tree DP
@@ -38,3 +39,8 @@
 ## Monotonic Queue/Stack
 
 - [817D](817/d/d.cc) Imbalanced Array ([Description](https://codeforces.com/problemset/problem/817/D)) 
+
+## Strings
+
+### Prefix function
+- [808G](808/g/g.cc) Anthem of Berland ([Description](https://codeforces.com/problemset/problem/808/G)) 
