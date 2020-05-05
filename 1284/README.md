@@ -7,3 +7,7 @@
 - [ ] E
 - [ ] F
 - [ ] G
+
+## Problem D - New Year and Conference
+
+> Note: Kotlin version cannot pass all tests due to TLE.
