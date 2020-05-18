@@ -42,8 +42,7 @@ for case_num in range(t):
             mid = (l + r) // 2
             a = list(range(1, mid - lo + 2))
             b = list(range(lo, mid + 1))
-            result = query(a, b)
-            if result == 'EQUAL':
+            if query(a, b) == 'EQUAL':
                 l = mid + 1
             else:
                 r = mid - 1
