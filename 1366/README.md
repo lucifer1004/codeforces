@@ -6,4 +6,4 @@
 - [x] D
 - [x] E
 - [ ] F
-- [ ] G
+- [x] G:bookmark_tabs:
