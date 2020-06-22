@@ -17,6 +17,7 @@
 
 ### Tree DP
 
+- [1187E](1187/e/e.cc) Tree Painting ([Description](https://codeforces.com/contest/1187/problem/E))
 - [1223E](1223/e/e.cc) Paint the Tree ([Description](https://codeforces.com/problemset/problem/1223/E))
 
 ## Graph
@@ -25,6 +26,12 @@
 
 - [1217D](1217/d/d.py) Coloring Edges ([Description](https://codeforces.com/problemset/problem/1217/D))
 - [1325F](1325/f/f.cc) Ehab's Last Theorem ([Description](https://codeforces.com/problemset/problem/1325/F))
+
+### Flow
+
+#### Min-cost Max-Flow
+
+- [1187G](1187/g/g.cc) Gang Up ([Description](https://codeforces.com/problemset/problem/1187/G))
 
 ### Shortest Path
 
@@ -38,10 +45,15 @@
 
 ## Monotonic Queue/Stack
 
-- [817D](817/d/d.cc) Imbalanced Array ([Description](https://codeforces.com/problemset/problem/817/D)) 
+- [817D](817/d/d.cc) Imbalanced Array ([Description](https://codeforces.com/problemset/problem/817/D))
+
+## Segment Tree
+
+- [1187D](1187/d/d.cc) Subarray Sorting (Single assignment, range minimum query, [Description](https://codeforces.com/contest/1187/problem/D))
 
 ## Strings
 
 ### Prefix function
-- [471D](471/d/d.py) MUH and Cube Walls ([Description](https://codeforces.com/problemset/problem/471/D)) 
-- [808G](808/g/g.cc) Anthem of Berland ([Description](https://codeforces.com/problemset/problem/808/G)) 
+
+- [471D](471/d/d.py) MUH and Cube Walls ([Description](https://codeforces.com/problemset/problem/471/D))
+- [808G](808/g/g.cc) Anthem of Berland ([Description](https://codeforces.com/problemset/problem/808/G))
