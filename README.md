@@ -49,6 +49,8 @@
 
 ## Segment Tree
 
+- [52C](52/c/c.cc) Circular RMQ (Range addition, range minimum query, [Description](https://codeforces.com/contest/52/problem/C))
+- [56E](56/e/e.cc) Domino Principle (Single assignment, range maximum query, [Description](https://codeforces.com/contest/56/problem/E))
 - [1187D](1187/d/d.cc) Subarray Sorting (Single assignment, range minimum query, [Description](https://codeforces.com/contest/1187/problem/D))
 
 ## Strings
