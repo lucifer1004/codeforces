@@ -22,7 +22,7 @@ public:
   }
 
   void connect(int a, int b) {
-    int fa = parent[a], fb = parent[b];
+    int fa = find(a), fb = find(b);
     if (fa != fb) {
       if (size[fa] > size[fb]) {
         parent[fb] = fa;
