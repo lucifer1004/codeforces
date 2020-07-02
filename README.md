@@ -52,6 +52,8 @@
 - [52C](52/c/c.cc) Circular RMQ (Range addition, range minimum query, [Description](https://codeforces.com/contest/52/problem/C))
 - [56E](56/e/e.cc) Domino Principle (Single assignment, range maximum query, [Description](https://codeforces.com/contest/56/problem/E))
 - [1187D](1187/d/d.cc) Subarray Sorting (Single assignment, range minimum query, [Description](https://codeforces.com/contest/1187/problem/D))
+- [1371F](1371/f/f.cc) Raging Thunder (Complex node combination, [Description](https://codeforces.com/contest/1371/problem/F))
+- [1373G](1373/g/g.cc) Pawns(Range addition, range minimum query, [Description](https://codeforces.com/contest/1373/problem/G))
 
 ## Strings
 
