@@ -41,6 +41,7 @@
 
 ### Topological Sort
 
+- [1385E](1385/e/e.cc) Directing Edges ([Description](https://codeforces.com/contest/1385/problem/E))
 - [102006G](gym/102006/g/g.cc) Is Topo Logical? ([Description](https://codeforces.com/gym/102006/problem/G))
 
 ## Monotonic Queue/Stack
