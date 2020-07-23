@@ -6,7 +6,6 @@
 #define rson(idx) ((idx) << 1 | 1)
 #define MAXN 100005
 
-inline int lowbit(int x) { return x & (-x); }
 template <typename T> void read(T &x) {
   x = 0;
   char c = getchar();
@@ -26,28 +25,17 @@ vector<int> a;
 
 struct Node {
   ll p = 0;
-  int a[41]{};
   int cnt[41]{};
   Node() {}
-  int query(int idx) {
-    int ans = 0;
-    for (; idx > 0; idx -= lowbit(idx))
-      ans += a[idx];
-    return ans;
-  }
-
-  void update(int idx, int delta) {
-    for (; idx <= 40; idx += lowbit(idx))
-      a[idx] += delta;
-  }
 } s[MAXN * 4];
 
 Node combine(Node l, Node r) {
   Node ans;
   ans.p = l.p + r.p;
+  ll rc = 0;
   for (int i = 1; i <= 40; ++i) {
-    ans.p += (ll)r.cnt[i] * l.query(40 - i);
-    ans.a[i] = l.a[i] + r.a[i];
+    ans.p += (ll)l.cnt[i] * rc;
+    rc += r.cnt[i];
     ans.cnt[i] = l.cnt[i] + r.cnt[i];
   }
   return ans;
@@ -61,7 +49,6 @@ void calc(int idx) {
 
 void build(int idx, int l, int r) {
   if (l == r) {
-    s[idx].update(41 - a[l], 1);
     s[idx].cnt[a[l]] = 1;
   } else {
     int mid = (l + r) >> 1;
@@ -73,9 +60,7 @@ void build(int idx, int l, int r) {
 
 void update(int idx, int pos, int v, int cl, int cr) {
   if (cl == pos && cr == pos) {
-    s[idx].update(41 - a[pos], -1);
     s[idx].cnt[a[pos]]--;
-    s[idx].update(41 - v, 1);
     s[idx].cnt[v]++;
     a[pos] = v;
   } else {
