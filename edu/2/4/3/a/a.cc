@@ -1,6 +1,5 @@
 #include <cstring>
 #include <iostream>
-#include <vector>
 #define MAXN 100005
 
 using namespace std;
@@ -19,12 +18,10 @@ void update(int idx, int delta) {
 }
 int main() {
   cin >> n;
-  vector<int> a(n);
-  for (int i = 0; i < n; ++i)
-    cin >> a[i];
-  vector<int> ans(n);
-  for (int i = n - 1; i >= 0; --i) {
-    int idx = n - a[i];
-    ans[i] = idx + query(idx);
+  for (int i = 0; i < n; ++i) {
+    int x;
+    cin >> x;
+    cout << query(n) - query(x - 1) << " ";
+    update(x, 1);
   }
 }
