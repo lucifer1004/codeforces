@@ -13,7 +13,7 @@ struct Node {
 };
 
 string s, t;
-int x, dp[5005][5005];
+int x, dp[1005][5005];
 set<string> xprime;
 vector<int> suffix = {0};
 vector<Node> nodes;
