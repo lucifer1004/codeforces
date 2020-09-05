@@ -1,7 +1,6 @@
+#include <algorithm>
 #include <cstdio>
 #include <iostream>
-#include <map>
-#include <set>
 #include <vector>
 
 using namespace std;
@@ -24,38 +23,23 @@ public:
     int n, k;
     read(n), read(k);
     vector<int> x(n), y(n);
-    set<int> s, start;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i)
       read(x[i]);
-      s.insert(x[i]);
-      start.insert(x[i]);
-      s.insert(x[i] + k);
-    }
     for (int i = 0; i < n; ++i)
       read(y[i]);
-    int m = s.size();
-    vector<int> pre(m + 1);
-    vector<int> vs(s.begin(), s.end());
-    map<int, int> d;
-    for (int i = 0; i < m; ++i)
-      d[vs[i]] = i + 1;
-    for (int i : x)
-      pre[d[i]]++;
-    for (int i = 1; i <= m; ++i)
-      pre[i] += pre[i - 1];
-    vector<int> c(start.size() + 1);
-    vector<int> L(m + 2), R(m + 2);
-    for (int i : start) {
-      int ds = d[i], de = d[i + k];
-      L[ds] = R[ds] = pre[de] - pre[ds - 1];
+    sort(x.begin(), x.end());
+    vector<int> L(n + 1), R(n + 1);
+    int r = 0;
+    for (int l = 0; l < n; ++l) {
+      while (r + 1 < n && x[r + 1] <= x[l] + k)
+        r++;
+      R[l] = L[l] = r - l + 1;
     }
-    for (int i = m - 1; i >= 0; --i)
+    for (int i = n - 1; i >= 0; --i)
       R[i] = max(R[i], R[i + 1]);
     int ans = 0;
-    for (int i : start) {
-      int ds = d[i], de = d[i + k];
-      ans = max(ans, L[ds] + R[de + 1]);
-    }
+    for (int i = 0; i < n; ++i)
+      ans = max(ans, L[i] + R[i + L[i]]);
     printf("%d\n", ans);
   }
 };
