@@ -21,7 +21,7 @@ public:
   void solve() {
     int n, k, z;
     read(n), read(k), read(z);
-    vector<int> a(n), s(n + 1), l(n + 1);
+    vector<int> a(n), s(n + 1), l(n);
     for (int i = 0; i < n; ++i) {
       read(a[i]), s[i + 1] = s[i] + a[i];
       if (i >= 1)
