@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <cstdio>
 #include <iostream>
 #include <vector>
@@ -27,13 +26,10 @@ public:
     vector<int> a(n);
     for (int i = 0; i < n; ++i)
       read(a[i]);
-    sort(a.rbegin(), a.rend());
     vector<bool> vis(n);
     vector<int> ans(n);
-    ans[0] = a[0];
-    vis[0] = true;
-    int g = a[0];
-    for (int i = 1; i < n; ++i) {
+    int g = 0;
+    for (int i = 0; i < n; ++i) {
       int hi = -1, hidx = -1;
       for (int j = 0; j < n; ++j) {
         if (vis[j])
