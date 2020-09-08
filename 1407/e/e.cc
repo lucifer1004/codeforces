@@ -24,16 +24,14 @@ public:
   void solve() {
     int n, m;
     read(n), read(m);
-    vector<map<int, int>> in(n + 1);
+    vector<vector<pair<int, int>>> in(n + 1);
     for (int i = 0; i < m; ++i) {
       int u, v, t;
       read(u), read(v), read(t);
       if (u == v)
         continue;
       t++;
-      if (in[v].count(u) && (in[v][u] == t || in[v][u] == 3))
-        continue;
-      in[v][u] += t;
+      in[v].emplace_back(u, t);
     }
 
     queue<pair<int, int>> q;
@@ -49,8 +47,7 @@ public:
       for (auto [u, t] : in[v]) {
         if (vis[u])
           continue;
-        if ((t == 3) || (t == 1 && close[u] == 2) ||
-            (t == 2 && close[u] == 1)) {
+        if ((t == 1 && close[u] == 2) || (t == 2 && close[u] == 1)) {
           vis[u] = true;
           q.emplace(u, d + 1);
         } else
