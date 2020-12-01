@@ -1,6 +1,5 @@
 #include <iostream>
 #include <set>
-#include <stack>
 #include <unordered_map>
 
 typedef long long ll;
