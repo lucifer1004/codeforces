@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 #include <cstdio>
 #include <iostream>
 #include <vector>
@@ -8,18 +9,8 @@
 using namespace std;
 typedef long long ll;
 
-ll fac[MAXN], rev[MAXN];
-ll fexp(ll x, ll y) {
-  ll ans = 1;
-  while (y) {
-    if (y & 1)
-      ans = ans * x % MOD;
-    x = x * x % MOD;
-    y >>= 1;
-  }
-  return ans;
-}
-ll C(int n, int k) { return fac[n] * rev[k] % MOD * rev[n - k] % MOD; }
+ll fac[MAXN], inv[MAXN], invfac[MAXN];
+ll C(int n, int k) { return fac[n] * invfac[k] % MOD * invfac[n - k] % MOD; }
 
 template <typename T> void read(T &x) {
   x = 0;
@@ -57,10 +48,11 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
 
-  fac[0] = 1, rev[0] = 1;
-  for (int i = 1; i < MAXN; ++i) {
+  fac[0] = invfac[0] = fac[1] = invfac[1] = inv[1] = 1;
+  for (int i = 2; i < MAXN; ++i) {
     fac[i] = fac[i - 1] * i % MOD;
-    rev[i] = fexp(fac[i], MOD - 2);
+    inv[i] = -inv[MOD % i] * (MOD / i) % MOD + MOD;
+    invfac[i] = invfac[i - 1] * inv[i] % MOD;
   }
 
   int t;
