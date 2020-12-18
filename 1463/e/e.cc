@@ -7,58 +7,23 @@
 using namespace std;
 
 int n, k;
-bool loop;
-int p[MAXN]{}, nxt[MAXN]{}, pre[MAXN]{}, anc[MAXN]{}, color[MAXN]{},
-    depth[MAXN]{};
-vector<int> adj[MAXN]{};
-set<int> out[MAXN]{}, in[MAXN]{};
+int p[MAXN]{}, nxt[MAXN]{}, pre[MAXN]{}, anc[MAXN]{}, depth[MAXN]{};
+vector<int> out[MAXN]{};
 
 int find(int x) { return anc[x] == x ? x : (anc[x] = find(anc[x])); }
-
-void dfs(int u) {
-  color[u] = 1;
-  for (int v : adj[u]) {
-    if (color[v] == 1) {
-      loop = true;
-      return;
-    }
-    if (!color[v])
-      dfs(v);
-  }
-  color[u] = 2;
-}
 
 int main() {
   cin >> n >> k;
   for (int i = 1; i <= n; ++i)
     cin >> p[i], anc[i] = i;
 
-  // First, build a graph using neighborhood edges.
-  vector<pair<int, int>> edges;
+  // Align neighbors and validate (multiple branches or loops are not allowed).
+  // Use path compression to find the head of each neighborhood chain
+  // efficiently.
   for (int i = 0; i < k; ++i) {
     int x, y;
     cin >> x >> y;
-    edges.emplace_back(x, y);
-    adj[x].emplace_back(y);
-  }
-
-  // Detect loops in the neighborhood graph.
-  loop = false;
-  for (int i = 1; i <= n; ++i) {
-    if (!color[i])
-      dfs(i);
-  }
-
-  if (loop) {
-    cout << 0;
-    return 0;
-  }
-
-  // Align neighbors and validate (multiple branches are not allowed).
-  // Use path compression to find the head of each neighborhood chain
-  // efficiently.
-  for (auto [x, y] : edges) {
-    if (nxt[x] || pre[y]) {
+    if (nxt[x] || pre[y] || find(x) == find(y)) {
       cout << 0 << endl;
       return 0;
     }
@@ -93,13 +58,8 @@ int main() {
         }
         continue;
       }
-      out[u].insert(v);
-
-      // Increase the in degree only if the edge is added for the first time.
-      if (!in[v].count(u)) {
-        in[v].insert(u);
-        in_degree[v]++;
-      }
+      out[u].emplace_back(v);
+      in_degree[v]++;
     }
   }
 
