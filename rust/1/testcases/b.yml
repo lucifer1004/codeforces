@@ -1,0 +1,16 @@
+---
+type: Batch
+timelimit: 10s
+match: Lines
+
+cases:
+  - name: example1
+    in: |
+      2
+      R23C55
+      BC23
+    out: |
+      BC23
+      R23C55
+
+extend: []

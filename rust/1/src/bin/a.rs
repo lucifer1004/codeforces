@@ -48,8 +48,8 @@ macro_rules! read_value {
 }
 
 fn main() {
-    input! {
-        t: usize,
-    }
-    for _ in 0..t {}
+    input! {n: i64, m: i64, a: i64};
+    let x = (n - 1) / a + 1;
+    let y = (m - 1) / a + 1;
+    println!("{}", x * y);
 }

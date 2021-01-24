@@ -1,0 +1,13 @@
+---
+type: Batch
+timelimit: 1s
+match: Lines
+
+cases:
+  - name: example1
+    in: |
+      6 6 4
+    out: |
+      4
+
+extend: []

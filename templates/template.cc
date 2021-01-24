@@ -28,8 +28,8 @@
 using namespace std;
 typedef long long ll;
 
-mt19937 mrand(random_device{}());
-int rnd(int x) { return mrand() % x; }
+mt19937 rng(random_device{}());
+mt19937_64 rng64(random_device{}());
 
 template <typename T> void read(T &x) {
   x = 0;

@@ -1,0 +1,26 @@
+[package]
+name = "contest1"
+version = "0.1.0"
+authors = ["Gabriel Wu <qqbbnease1004@126.com>"]
+edition = "2018"
+
+[package.metadata.cargo-compete]
+config = "../compete.toml"
+
+[package.metadata.cargo-compete.bin]
+a = { name = "contest1-a", problem = "https://codeforces.com/contest/1/problem/A" }
+b = { name = "contest1-b", problem = "https://codeforces.com/contest/1/problem/B" }
+c = { name = "contest1-c", problem = "https://codeforces.com/contest/1/problem/C" }
+
+[[bin]]
+name = "contest1-a"
+path = "src/bin/a.rs"
+
+[[bin]]
+name = "contest1-b"
+path = "src/bin/b.rs"
+
+[[bin]]
+name = "contest1-c"
+path = "src/bin/c.rs"
+[dependencies]

@@ -1,0 +1,15 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: example1
+    in: |
+      0.000000 0.000000
+      1.000000 1.000000
+      0.000000 1.000000
+    out: |
+      1.00000000
+
+extend: []

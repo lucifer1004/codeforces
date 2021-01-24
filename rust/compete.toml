@@ -1,3 +1,19 @@
+test-suite = "{{ manifest_dir }}/testcases/{{ bin_alias }}.yml"
+
+[new]
+kind = "cargo-compete"
+platform = "codeforces"
+path = "./{{ contest }}"
+
+[new.template.dependencies]
+kind = "inline"
+content = '''
+#proconio = { version = "0.4.1", features = ["derive"] }
+'''
+
+[new.template.src]
+kind = "inline"
+content = '''
 macro_rules! input {
     (source = $s:expr, $($r:tt)*) => {
         let mut iter = $s.split_whitespace();
@@ -48,8 +64,13 @@ macro_rules! read_value {
 }
 
 fn main() {
-    input! {
-        t: usize,
-    }
-    for _ in 0..t {}
+    input!{};
 }
+'''
+
+[test]
+profile = "release"
+
+#[submit.transpile]
+#kind = "command"
+#args = ["cargo", "executable-payload", "--bin", "{{ bin_name }}"]
