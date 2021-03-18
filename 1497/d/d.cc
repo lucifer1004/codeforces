@@ -25,19 +25,17 @@ class Solution {
     vector<int> tag(n), score(n);
     for (int i = 0; i < n; ++i) read(tag[i]);
     for (int i = 0; i < n; ++i) read(score[i]);
-    vector<ll> from_left(n), from_right(n);
+    vector<ll> dp(n);
     for (int i = 1; i < n; ++i)
       for (int j = i - 1; j >= 0; --j) {
         if (tag[i] != tag[j]) {
           ll delta = abs(score[i] - score[j]);
-          ll new_left = max(from_left[j], from_right[j]) + delta,
-             new_right = max(from_left[i], from_right[i]) + delta;
-          from_left[i] = max(from_left[i], new_left);
-          from_right[j] = max(from_right[j], new_right);
+          ll dpj = dp[i] + delta, dpi = dp[j] + delta;
+          dp[i] = max(dp[i], dpi);
+          dp[j] = max(dp[j], dpj);
         }
       }
-    ll ans = max(*max_element(from_left.begin(), from_left.end()),
-                 *max_element(from_right.begin(), from_right.end()));
+    ll ans = *max_element(dp.begin(), dp.end());
     printf("%lld\n", ans);
   }
 };
