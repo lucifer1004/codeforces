@@ -1,1 +1,2 @@
-mod prime;
+pub mod bbst;
+pub mod prime;
