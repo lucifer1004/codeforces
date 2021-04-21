@@ -205,6 +205,9 @@ impl<T: Clone + PartialOrd> Treap<T> {
     pub fn delete(&mut self, val: T) {
         if !self.empty() {
             let k = self.get_order(val.clone());
+            if k >= self.size() {
+                return;
+            }
             if self.get_kth(k).unwrap() == val {
                 let (left, right) = TreapNode::<T>::split(self.root.clone(), k);
                 let (_, rright) = TreapNode::<T>::split(right, 1);
