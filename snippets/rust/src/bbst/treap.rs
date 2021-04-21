@@ -255,10 +255,9 @@ impl<T: Clone + PartialOrd, P: Clone + InternalData<T>> Treap<T, P> {
         if k >= self.size() {
             None
         } else {
-            let (left, right) = TreapNode::<T, P>::split(self.root.clone(), k);
-            let (rleft, rright) = TreapNode::<T, P>::split(right, 1);
-            let ans = P::merge(left.data(), P::from_val(rleft.val().unwrap()));
-            self.root = TreapNode::<T, P>::merge(TreapNode::<T, P>::merge(left, rleft), rright);
+            let (left, right) = TreapNode::<T, P>::split(self.root.clone(), k + 1);
+            let ans = left.data();
+            self.root = TreapNode::<T, P>::merge(left, right);
             Some(ans)
         }
     }
