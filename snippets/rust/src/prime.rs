@@ -17,7 +17,7 @@ pub fn miller_rabin(n: usize) -> bool {
         false
     } else {
         for p in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29].iter() {
-            if n % p == 0 { 
+            if n % p == 0 {
                 return n == *p;
             }
         }

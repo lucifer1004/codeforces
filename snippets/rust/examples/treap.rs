@@ -1,7 +1,7 @@
 use rust::bbst::treap::*;
 
 fn main() {
-    let mut treap = Treap::new();
+    let mut treap: Treap<i32, ()> = Treap::new();
     let n = 100_000;
     for i in 1..=n {
         treap.insert(i);
