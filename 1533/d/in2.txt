@@ -1,0 +1,13 @@
+6 3
+dba
+abd
+cbb
+ada
+add
+bdd
+5
+ccbb
+abdd
+adba
+bada
+dddd
