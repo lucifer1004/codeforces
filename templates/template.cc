@@ -26,7 +26,7 @@
 #define MOD 1000000007
 
 using namespace std;
-typedef long long ll;
+using ll = long long;
 
 mt19937 rng(random_device{}());
 mt19937_64 rng64(random_device{}());

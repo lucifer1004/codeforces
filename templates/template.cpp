@@ -29,7 +29,7 @@
 
 using namespace std;
 using namespace __gnu_pbds;
-typedef long long ll;
+using ll = long long;
 
 mt19937 mrand(random_device{}());
 int rnd(int x) { return mrand() % x; }

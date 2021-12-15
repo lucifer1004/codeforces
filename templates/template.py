@@ -1,9 +1,13 @@
+from sys import stdin
+input = stdin.readline
+
+
 def read_int():
     return int(input())
 
 
 def read_ints():
-    return map(int, input().split(' '))
+    return map(int, input().split())
 
 
 t = read_int()
