@@ -20,7 +20,7 @@ impl<T> InternalData<T> for () {
         ()
     }
 
-    fn from_val(val: T) -> Self {
+    fn from_val(_val: T) -> Self {
         ()
     }
 }
