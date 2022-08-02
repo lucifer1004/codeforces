@@ -1,4 +1,4 @@
-# Codeforces Round 811 Div.3
+# Codeforces Round 811 (Div. 3)
 
 - [x] A
 - [x] B
